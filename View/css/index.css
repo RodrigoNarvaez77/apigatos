@@ -1,0 +1,30 @@
+body {
+      background-color: #f8f9fa;
+      margin: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#result {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        background-color: #fff;
+}
+
+#result img {
+            max-width: 100%;  /* Asegura que la imagen no exceda el ancho del contenedor */
+            height: auto;     /* Mantiene la relación de aspecto */
+            display: block;   /* Centra la imagen si es necesario */
+            margin: 0 auto;  /* Centra horizontalmente */
+}
+
+#opciones {
+    height: 110px; /* Ajusta la altura como desees */
+    width: 1100px; /* Ajusta el ancho si es necesario */
+}
+        
+
