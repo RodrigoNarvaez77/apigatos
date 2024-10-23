@@ -1,11 +1,17 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router(); //crear las instancias del crud
+// Accede a la API key desde el archivo .env
+const apiKey = process.env.CAT_API_KEY;
 
 // Endpoint para cargar datos de una API filtrado por nombre
 router.get('/:name', async (req, res) => {
     try {
-      const response = await axios.get('https://api.thecatapi.com/v1/breeds'); 
+      const response = await axios.get('https://api.thecatapi.com/v1/breeds',{ 
+        headers: {
+          'x-api-key': apiKey // Incluye la API key en el encabezado
+        }
+      }); 
       const { name } = req.params; // Obtiene el nombre de la raza desde la URL
       const breeds = response.data;
       
@@ -27,7 +33,12 @@ router.get('/:name', async (req, res) => {
   // Endpoint para cargar todos los datos de los gatitos 
 router.get('/gatitos/todoslosgatitos', async (req, res) => {
     try {
-      const response = await axios.get('https://api.thecatapi.com/v1/breeds'); 
+      const response = await axios.get('https://api.thecatapi.com/v1/breeds', { 
+        headers: {
+          'x-api-key': apiKey // Incluye la API key en el encabezado
+        }
+        
+      }); 
       res.status(200).json(response.data);
       console.log(response);
 
